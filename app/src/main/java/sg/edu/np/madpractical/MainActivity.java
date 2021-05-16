@@ -15,12 +15,16 @@ import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    User newUser = new User("Shravya", "Hello I'm Shravya", 0001, false);
+
+    //creating 20 users
+    User newUser = new User("Shravya", "Hello I'm Shravya", 1, false);
+
     private final static String TAG = "Main Activity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +35,11 @@ public class MainActivity extends AppCompatActivity {
         Intent receivedData = getIntent();
         int randNumber = receivedData.getIntExtra("Random", 0);
 
+
         TextView name = findViewById(R.id.textView);
         TextView description = findViewById(R.id.textView2);
+
+        //randomise
         name.setText(newUser.getName() + " " + randNumber);
         description.setText(newUser.getDescription());
 
